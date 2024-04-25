@@ -21,25 +21,16 @@ namespace RetryTextRPG
         public override void Excute()
         {
             selectMenu = Console.ReadLine();
+  
+            int idx = int.Parse(selectMenu);
 
             if (selectMenu == "0")
             {
                 GameManager.Instance.ChangeScene(0);
             }
-            else if (selectMenu == "1")
+            else if (idx > 0 && DataManager.Items.Count >= idx)
             {
-                // 1번 아이템 장착
-                DataManager.Instance.EquipItem(DataManager.Items[0]);
-            }
-            else if (selectMenu == "2")
-            {
-                // 2번 아이템 장착
-                DataManager.Instance.EquipItem(DataManager.Items[1]);
-            }
-            else if (selectMenu == "3")
-            {
-                // 3번 아이템 장착
-                DataManager.Instance.EquipItem(DataManager.Items[2]);
+                DataManager.Instance.EquipItem(DataManager.Items[idx-1]);
             }
             else
             {
